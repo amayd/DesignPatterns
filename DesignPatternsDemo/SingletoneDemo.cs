@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DesignPatternsDemo
+namespace InterviewPreperation
 {
     public sealed class SingletoneDemo
     {
