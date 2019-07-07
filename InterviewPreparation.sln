@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatternsDemo", "Desig
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionLoggingDemo", "ExceptionLoggingDemo\ExceptionLoggingDemo.csproj", "{943883B2-959C-49EE-9E3B-678F8E2E57B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger", "Logger\Logger.csproj", "{377B92ED-3EFE-4633-9526-8F08504AD8D3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{943883B2-959C-49EE-9E3B-678F8E2E57B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{943883B2-959C-49EE-9E3B-678F8E2E57B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{943883B2-959C-49EE-9E3B-678F8E2E57B5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{377B92ED-3EFE-4633-9526-8F08504AD8D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{377B92ED-3EFE-4633-9526-8F08504AD8D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{377B92ED-3EFE-4633-9526-8F08504AD8D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{377B92ED-3EFE-4633-9526-8F08504AD8D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,33 +1,26 @@
-﻿using ExceptionLoggingDemo.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
-using Logger;
+using ExceptionLoggingDemo.Factory;
+using ExceptionLoggingDemo.Managers;
+using ExceptionLoggingDemo.Models;
 
 namespace ExceptionLoggingDemo.Controllers
 {
     public class EmployeesController : Controller
     {
         private EmployeePortalEntities db = new EmployeePortalEntities();
-        private ILog _Ilog;
-
-        public EmployeesController()
-        {
-            _Ilog = Log.GetInstance;
-        }
-
-        protected override void OnException(ExceptionContext filterContext)
-        {
-            _Ilog.LogException(filterContext.Exception.ToString());
-            filterContext.ExceptionHandled = true;
-            this.View("Error").ExecuteResult(this.ControllerContext);
-        }
 
         // GET: Employees
         public ActionResult Index()
         {
-            return View(db.Employees.ToList());
+            var employees = db.Employees.Include(e => e.Employee_Type);
+            return View(employees.ToList());
         }
 
         // GET: Employees/Details/5
@@ -48,6 +41,7 @@ namespace ExceptionLoggingDemo.Controllers
         // GET: Employees/Create
         public ActionResult Create()
         {
+            ViewBag.EmployeeTypeID = new SelectList(db.Employee_Type, "Id", "EmployeeType");
             return View();
         }
 
@@ -56,15 +50,22 @@ namespace ExceptionLoggingDemo.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,JobDescription,Number,Department")] Employee employee)
+        public ActionResult Create([Bind(Include = "Id,Name,JobDescription,Number,Department,HourlyPay,Bonus,EmployeeTypeID")] Employee employee)
         {
             if (ModelState.IsValid)
             {
+
+                EmployeeManagerFactory employeeManagerFactory = new EmployeeManagerFactory();
+                IEmployeeManagers employeeManagers = employeeManagerFactory.GetEmployeeManager(employee.EmployeeTypeID);
+                employee.Bonus =  employeeManagers.GetBonus();
+                employee.HourlyPay = employeeManagers.GetPay();
                 db.Employees.Add(employee);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
+
+            ViewBag.EmployeeTypeID = new SelectList(db.Employee_Type, "Id", "EmployeeType", employee.EmployeeTypeID);
             return View(employee);
         }
 
@@ -80,6 +81,7 @@ namespace ExceptionLoggingDemo.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.EmployeeTypeID = new SelectList(db.Employee_Type, "Id", "EmployeeType", employee.EmployeeTypeID);
             return View(employee);
         }
 
@@ -88,7 +90,7 @@ namespace ExceptionLoggingDemo.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,JobDescription,Number,Department")] Employee employee)
+        public ActionResult Edit([Bind(Include = "Id,Name,JobDescription,Number,Department,HourlyPay,Bonus,EmployeeTypeID")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -96,6 +98,7 @@ namespace ExceptionLoggingDemo.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.EmployeeTypeID = new SelectList(db.Employee_Type, "Id", "EmployeeType", employee.EmployeeTypeID);
             return View(employee);
         }
 
