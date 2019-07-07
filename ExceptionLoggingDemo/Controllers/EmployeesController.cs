@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using ExceptionLoggingDemo.Factory;
+using ExceptionLoggingDemo.Managers;
+using ExceptionLoggingDemo.Models;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using ExceptionLoggingDemo.Factory;
-using ExceptionLoggingDemo.Managers;
-using ExceptionLoggingDemo.Models;
 
 namespace ExceptionLoggingDemo.Controllers
 {
@@ -57,7 +53,7 @@ namespace ExceptionLoggingDemo.Controllers
 
                 EmployeeManagerFactory employeeManagerFactory = new EmployeeManagerFactory();
                 IEmployeeManagers employeeManagers = employeeManagerFactory.GetEmployeeManager(employee.EmployeeTypeID);
-                employee.Bonus =  employeeManagers.GetBonus();
+                employee.Bonus = employeeManagers.GetBonus();
                 employee.HourlyPay = employeeManagers.GetPay();
                 db.Employees.Add(employee);
                 db.SaveChanges();
