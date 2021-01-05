@@ -40,8 +40,8 @@ namespace InterviewPreperation
         //creating nested class when sealed keyword in not present in singletone class then it will create multiple instance of the class.
         //public class DerivedSingleToneClass : SingletoneDemo
         //{
-        // to make it work remove sealed keyword from SingletoneDemo class
-        //} 
+        //    //to make it work remove sealed keyword from SingletoneDemo class
+        //}
         #endregion
     }
 }
