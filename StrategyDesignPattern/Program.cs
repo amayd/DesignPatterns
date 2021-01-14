@@ -10,6 +10,10 @@ namespace StrategyDesignPattern
     {
         static void Main(string[] args)
         {
+
+            CollectionsAndGenerics class1 = new CollectionsAndGenerics();
+            class1.getCollections();
+            class1.getGenericCollections();
             var reports = new List<DeveloperReport>
         {
             new DeveloperReport {Id = 1, Name = "Dev1", Level = DeveloperLevel.Senior, HourlyRate = 30.5, WorkingHours = 160 },

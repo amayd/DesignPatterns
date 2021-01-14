@@ -38,10 +38,10 @@ namespace InterviewPreperation
 
         #region Why sealed keyword is important
         //creating nested class when sealed keyword in not present in singletone class then it will create multiple instance of the class.
-        //public class DerivedSingleToneClass : SingletoneDemo
-        //{
-        //    //to make it work remove sealed keyword from SingletoneDemo class
-        //}
+       //public class DerivedSingleToneClass : SingletoneDemo
+       //{
+       //    //to make it work remove sealed keyword from SingletoneDemo class
+       //}
         #endregion
     }
 }

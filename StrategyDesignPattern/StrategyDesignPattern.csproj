@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CollectionsAndGenerics.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="SeniorDevSalaryCalculator.cs" />
     <Compile Include="JuniorDevSalaryCalculator.cs" />
