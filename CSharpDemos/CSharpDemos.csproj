@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2A47E5DA-8CBA-4DF8-B9AE-E8C38230E41A}</ProjectGuid>
+    <ProjectGuid>{3FA63400-DC4A-40AB-8F27-61B581989E4C}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StrategyDesignPattern</RootNamespace>
-    <AssemblyName>StrategyDesignPattern</AssemblyName>
+    <RootNamespace>CSharpDemos</RootNamespace>
+    <AssemblyName>CSharpDemos</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,15 +24,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -44,13 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DemoAsyncAwait.cs" />
+    <Compile Include="DemoCollections.cs" />
+    <Compile Include="DemoCovarianceContravariant.cs" />
+    <Compile Include="DemoDelegates.cs" />
+    <Compile Include="DemoExtensionMethods.cs" />
+    <Compile Include="DemoGenericCollections.cs" />
+    <Compile Include="DemoLinq.cs" />
+    <Compile Include="DemoMultiThreading.cs" />
+    <Compile Include="DemoTaskParellelLibrary.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="SeniorDevSalaryCalculator.cs" />
-    <Compile Include="JuniorDevSalaryCalculator.cs" />
-    <Compile Include="DeveloperReport.cs" />
-    <Compile Include="ISalaryCalculator.cs" />
-    <Compile Include="StrategyPattern.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
